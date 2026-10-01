@@ -4,7 +4,14 @@ html {
 }
 
 :root {
+    /* Brand */
     --color-primary: #6741d9;
+    --color-primary-shadow:103 65 217;
+    --color-primary-light: #EDE7FF;
+    /* Surface */
+     --color-background: #ffffff;
+     /* delete */
+     --color-danger: #EF5B63;
 }
 
 body {
@@ -52,8 +59,8 @@ body {
 }
 
 .input-area:has(.task-input:focus) {
-    border-color: rgb(103 65 217 / 60%);
-    box-shadow: inset 0 0 10px rgb(103 65 217 / 20%);
+ border-color: rgb(var(--color-primary-shadow)/ 60%);
+box-shadow: inset 0 0 10px rgb(var(--color-primary-shadow) / 20%);
     border-radius: 9px;
 }
 
@@ -67,7 +74,7 @@ body {
 
 .add-btn {
     background-color: var(--color-primary);
-    color: #ffffff;
+    color:var(--color-background);
     border: none;
     border-radius: 9px;
 }
@@ -75,10 +82,6 @@ body {
 .task-input {
     border: none;
 }
-
-
-
-
 .task-text {
     position: relative;
     display: inline-block;
@@ -93,7 +96,7 @@ body {
     opacity: 1;
     transform: translateX(0);
     justify-content: space-between;
-    transition: max-height .35s ease, opacity .25s ease, margin .35s ease, padding .35s ease,transform .25s ease;
+    transition: max-height .35s ease, opacity .25s ease, margin .35s ease, padding .35s ease, transform .25s ease;
     padding: .5rem;
 }
 
@@ -128,23 +131,22 @@ body {
     display: flex;
     align-items: center;
     gap: 2rem;
-    /* background-color: red; */
 }
 
 .delete-btn {
-    color: #fa5252;
+    color:var(--color-danger);
     background-color: transparent;
     border: none;
 }
 
 .task-completed {
-    background-color: #e5dbff;
+    background-color: var(--color-primary-light);
     border-radius: 9px;
 }
 
 .save-btn {
     background-color: var(--color-primary);
-    color: #ffffff;
+    color:var(--color-background);
     border-radius: 9px;
     transition: background-color .3s ease;
 }
@@ -196,15 +198,15 @@ body {
 }
 
 .edit-input:focus {
-    border-color: #6741d9;
+    border-color: var(--color-primary);
     box-shadow:
-        0 0 0 3px rgb(103 65 217 / 12%),
-        0 0 12px rgb(103 65 217 / 15%);
+        0 0 0 3px rgb(var(--color-primary-shadow) / 12%),
+        0 0 12px rgb(var(--color-primary-shadow) / 15%);
 }
 
 .edit-input::selection {
     background-color: var(--color-primary);
-    color: #ffffff;
+    color: var(--color-background);
 }
 
 .edit-btn {
@@ -233,16 +235,17 @@ body {
     border: none;
     background-color: transparent;
     font-size: 1.4rem;
-    background-color: #e5dbff;
+    background-color: var(--color-primary-light);
     transition: background-color .3s ease, color .3s ease;
 }
-.filters__btn:hover{
+
+.filters__btn:hover {
     color: #334155;
 }
-.filters__btn.filters-clicked{
-    background-color:var(--color-primary);
-    color: #ffffff;
-    
+
+.filters__btn.filters-clicked {
+    background-color: var(--color-primary);
+    color:var(--color-background);
 }
 
 
@@ -258,74 +261,88 @@ body {
     margin-top: 2rem;
 }
 
-@media(max-width:85em){
-    html{
+@media(max-width:85em) {
+    html {
         font-size: 62.5%;
     }
-    .todo-app{
+
+    .todo-app {
         max-width: 40%;
     }
 }
-@media (max-width:62.5em){
-    html{
+
+@media (max-width:62.5em) {
+    html {
         font-size: 62.5%;
     }
-    .todo-app{
+
+    .todo-app {
         max-width: 50%;
     }
 }
-@media (max-width:50em){
-      html{
+
+@media (max-width:50em) {
+    html {
         font-size: 62.5%;
     }
-     .todo-app{
-        max-width:70%;
+
+    .todo-app {
+        max-width: 70%;
     }
 }
 
-@media (max-width:36.25em){
-    html{
+@media (max-width:36.25em) {
+    html {
         font-size: 62.5%;
     }
-    .todo-app{
-        max-width:90%;
+
+    .todo-app {
+        max-width: 90%;
     }
-    .filters__container{
+
+    .filters__container {
         gap: 1rem;
     }
-    .task-input{
+
+    .task-input {
         max-width: 50%;
     }
 }
 
-@media(max-width:26.25em){
-    html{
+@media(max-width:26.25em) {
+    html {
         font-size: 62.5%;
     }
-    .todo-app{
+
+    .todo-app {
         max-width: 95%;
     }
-    .filters{
+
+    .filters {
         flex-direction: column;
         gap: 2rem;
-        padding-inline:2rem;
+        padding-inline: 2rem;
     }
-    .filters__container{
+
+    .filters__container {
         justify-content: center;
     }
-    .task-content{
+
+    .task-content {
         width: 70%;
     }
-    .edit-input{
+
+    .edit-input {
         width: 70%;
     }
 }
 
-@media(max-width:21.25em){
-       html{
+@media(max-width:21.25em) {
+    html {
         font-size: 62.5%;
     }
-     .task-input{
+
+    .task-input {
         max-width: 40%;
     }
 }

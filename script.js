@@ -156,20 +156,28 @@ function edit__btn(e) {
     editInput.select()
 }
 
-function save__btn(e) {
-    const saveBtn = e.target.closest(".save-btn")
-    if (!saveBtn) return
-    const id = task__id(e)
+function save__action(e){
+     const id = task__id(e)
     if (!id) return
     const editItem = lists.find(item => item.id === id)
     const newTask = taskList.querySelector(`[data-id = "${id}"]`)
     const editInput = newTask?.querySelector(".edit-input")
     const editValue = editInput?.value.trim()
-    if (!editValue) return
+    if (!editValue) {
+        editInput.focus()
+        editInput.placeholder = "Enter your task..."
+        return
+    }
     editItem.name = editValue
     editItem.edit = false
     saveToLocalStorage()
     filterTask(currentFilter)
+    } 
+
+function save__btn(e) {
+    const saveBtn = e.target.closest(".save-btn")
+    if (!saveBtn) return
+    save__action(e)
 }
 
 function checked__btn(e) {
@@ -181,10 +189,10 @@ function checked__btn(e) {
     if (!id) return
     const markCompleted = lists.find(task => task.id === id)
     if (!markCompleted) return
-    markCompleted.completed = checked
-    saveToLocalStorage()
     task.classList.toggle("completed")
     task.classList.toggle("task-completed")
+     markCompleted.completed = checked
+    saveToLocalStorage()
     setTimeout(()=>{
      filterTask(currentFilter)   
     },300)
@@ -207,4 +215,12 @@ function taskOperations(e) {
 }
 addBtn.addEventListener("click", addTask)
 taskList.addEventListener("click", taskOperations);
+taskInput.addEventListener("keydown",function(e){
+    if (e.key === "Enter") addTask()
+})
+taskList.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    if (!e.target.classList.contains("edit-input")) return;
+    save__action(e);
+});
 
