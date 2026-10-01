@@ -231,15 +231,20 @@ body {
     height: 2.4rem;
     border-radius: 9px;
     border: none;
-    background-color: #dee2e6;
-    color: #000000;
+    background-color: transparent;
+    font-size: 1.4rem;
+    background-color: #e5dbff;
     transition: background-color .3s ease, color .3s ease;
 }
-
-.filters-clicked {
-    background-color: var(--color-primary);
-    color: #ffffff;
+.filters__btn:hover{
+    color: #334155;
 }
+.filters__btn.filters-clicked{
+    background-color:var(--color-primary);
+    color: #ffffff;
+    
+}
+
 
 .clear {
     width: auto;
