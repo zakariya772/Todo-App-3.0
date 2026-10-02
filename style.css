@@ -23,14 +23,23 @@ body {
     font-family: "inter", sans-serif;
 }
 
+
 .todo-app {
     max-width: 30%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 3.2rem;
 }
-
+.heading-primary{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.book-open__icon{
+     width: 2.4rem;
+    height:2.4rem;
+}
 .empty-state {
     transition: transfrom .3s ease;
     transform: translateY(0);
